@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+  postgres-db:
+    image: 'postgres:15.1-bullseye'
+    container_name: postgres
+    restart: always
+    networks:
+      - my-proxy-net
+    hostname: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: farmu
+      POSTGRES_PASSWORD: farmu
+      POSTGRES_DB: challenge
+
+  redis:
+    image: 'bitnami/redis:latest'
+    container_name: redis
+    ports:
+      - "6379:6379"
+    hostname: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    networks:
+      - my-proxy-net
+
+  challenge:
+    image: 'api:challenge'
+    networks:
+      - my-proxy-net
+    build:
+      context: ./
+    ports:
+      - "8282:8282"
+    container_name: challenge
+    depends_on:
+      - postgres-db
+    environment:
+      SERVER_PORT: 8282
+      DB_HOST: postgres
+      DB_NAME: challenge
+      DB_USER: farmu
+      DB_PASS: farmu
+      REDIRECT_URL_BASE: http://redirect:com/
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+
+networks:
+  my-proxy-net:
+    external:
+      name: custom_network
+

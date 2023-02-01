@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "65455459-4a70-4d96-9883-005e17364f6c",
+		"name": "farmu-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1987582"
+	},
+	"item": [
+		{
+			"name": "challenge-api",
+			"item": [
+				{
+					"name": "shortener-api",
+					"item": [
+						{
+							"name": "shortener",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\":\"https://www.google.com/search?q=como+hacer+un+url+shortener&sxsrf=AJOqlzVK1wntJPKtQ4PmgAxcP4HVPW9GRQ%3A1675144769293&source=hp&ei=Qa7YY8DYD4XZ1sQP8aO38AQ&iflsig=AK50M_UAAAAAY9i8URxwl86grUAkdY42VSMOzdX9rHnk&oq=como+hacer+un+url+short&gs_lcp=Cgdnd3Mtd2l6EAMYADIFCCEQoAE6BwgjEOoCECc6BggjECcQEzoECCMQJzoLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgUIABCABDoICAAQsQMQgwE6DggAEIAEELEDEIMBEMkDOgsILhCABBCxAxCDAToNCAAQgAQQsQMQgwEQCjoHCAAQgAQQCjoHCCMQsQIQJzoKCAAQgAQQsQMQCjoICAAQgAQQsQM6CAghEBYQHhAdUMUNWORLYN5RaAZwAHgAgAFriAGQDpIBBDIzLjGYAQCgAQGwAQo&sclient=gws-wiz\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8282/api/v1/shortener-url",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8282",
+									"path": [
+										"api",
+										"v1",
+										"shortener-url"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find-by-id",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8282/api/v1/shortener-url/26a9e2f04b4841eaee2c2612467cd053",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8282",
+									"path": [
+										"api",
+										"v1",
+										"shortener-url",
+										"26a9e2f04b4841eaee2c2612467cd053"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "image-resize",
+					"item": [
+						{
+							"name": "image-resize-upload",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/nsalone/Pictures/hollow.png"
+										},
+										{
+											"key": "targetHeight",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "targetWidth",
+											"value": "100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8282/api/v1/image-resizer/upload",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8282",
+									"path": [
+										"api",
+										"v1",
+										"image-resizer",
+										"upload"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "image-resize-online",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/C:/Users/nsalone/Pictures/hollow.png"
+										},
+										{
+											"key": "targetHeight",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "targetWidth",
+											"value": "100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8282/api/v1/image-resizer/resize",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8282",
+									"path": [
+										"api",
+										"v1",
+										"image-resizer",
+										"resize"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find-by-uuid",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8282/api/v1/image-resizer/1a543878-e1c8-417b-a388-083a792880ca",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8282",
+									"path": [
+										"api",
+										"v1",
+										"image-resizer",
+										"1a543878-e1c8-417b-a388-083a792880ca"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find-original-by-uuid",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8282/api/v1/image-resizer/original/1a543878-e1c8-417b-a388-083a792880ca",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8282",
+									"path": [
+										"api",
+										"v1",
+										"image-resizer",
+										"original",
+										"1a543878-e1c8-417b-a388-083a792880ca"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "health-check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8282/health-check",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "tenpo",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "tenpo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8282/actuator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8282",
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
